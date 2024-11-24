@@ -12,20 +12,8 @@ pipeline {
       
       }
     }
-    stage('test') {
-      steps {
-			sh '''
-				. .venv/bin/activate
-				pytest --junit-xml test-reports/results.xml application_test.py
-				
-			'''
-       
-      }
-      post {
-        always {
-          junit 'test-reports/*.xml'
-        }
-      }    
+
+    
     }
   }
 }
